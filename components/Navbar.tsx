@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Gem } from "lucide-react";
 import { navigationLinks } from "@/lib/site-data";
 import { buttonClasses } from "@/lib/styles";
 
@@ -7,14 +7,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-primary-foreground/10 bg-primary/95 backdrop-blur-md">
       <div className="container-x flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-accent text-accent-foreground">
-            <Gem className="h-5 w-5" strokeWidth={1.5} />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-lg text-primary-foreground">Top Maasai</span>
-            <span className="block text-[10px] uppercase tracking-[0.28em] text-accent">Mining Co.</span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label="Top Maasai home">
+          <Image
+            src="/images/top-maasai-logo.png"
+            alt="Top Maasai"
+            width={280}
+            height={280}
+            priority
+            className="h-20 w-auto brightness-0 invert"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
