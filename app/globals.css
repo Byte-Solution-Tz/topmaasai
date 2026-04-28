@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 27% 97%;
+    --foreground: 220 13% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 17%;
+    --primary: 236 46% 12%;
+    --primary-foreground: 43 27% 97%;
+    --accent: 39 75% 53%;
+    --accent-foreground: 236 46% 12%;
+    --secondary: 43 20% 93%;
+    --secondary-foreground: 236 46% 12%;
+    --muted: 43 15% 92%;
+    --muted-foreground: 220 9% 46%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 39 75% 53%;
+    --radius: 0.75rem;
+    --maasai-red: 6 65% 45%;
+    --earth: 28 35% 38%;
+    --gradient-hero: linear-gradient(180deg, hsl(236 46% 12% / 0.55) 0%, hsl(236 46% 8% / 0.85) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(39 75% 58%), hsl(35 70% 45%));
+    --shadow-card: 0 1px 2px hsl(236 46% 12% / 0.04), 0 8px 24px -8px hsl(236 46% 12% / 0.08);
+    --shadow-elevated: 0 24px 60px -20px hsl(236 46% 12% / 0.25);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "kern";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-accent;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-8 bg-accent;
+  }
+
+  .maasai-border {
+    background-image:
+      linear-gradient(135deg, hsl(var(--accent)) 25%, transparent 25%),
+      linear-gradient(225deg, hsl(var(--accent)) 25%, transparent 25%);
+    background-position: 0 0, 7px 0;
+    background-size: 14px 14px;
+    height: 8px;
+  }
+}
