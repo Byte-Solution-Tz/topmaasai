@@ -1,11 +1,36 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navigationLinks } from "@/lib/site-data";
 import { buttonClasses } from "@/lib/styles";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const [isSolid, setIsSolid] = useState(pathname !== "/");
+
+  useEffect(() => {
+    const updateNavbar = () => {
+      const scrolled = window.scrollY > 56;
+      setIsSolid(pathname !== "/" || scrolled);
+    };
+
+    updateNavbar();
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateNavbar);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-primary-foreground/10 bg-primary/95 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-500 ${
+        isSolid
+          ? "border-b border-primary-foreground/10 bg-primary/95 shadow-card backdrop-blur-md"
+          : "border-b border-primary-foreground/10 bg-primary/20 backdrop-blur-xl"
+      }`}
+    >
       <div className="container-x flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="Top Maasai home">
           <Image
@@ -37,10 +62,10 @@ export function Navbar() {
         </div>
 
         <details className="relative lg:hidden">
-          <summary className="cursor-pointer rounded-full border border-primary-foreground/20 px-4 py-2 text-sm text-primary-foreground">
+          <summary className="cursor-pointer rounded-full border border-primary-foreground/20 px-4 py-2 text-sm text-primary-foreground backdrop-blur-sm">
             Menu
           </summary>
-          <div className="absolute right-0 top-[calc(100%+0.75rem)] w-72 rounded-2xl border border-primary-foreground/10 bg-primary p-4 shadow-elevated">
+          <div className="absolute right-0 top-[calc(100%+0.75rem)] w-72 rounded-2xl border border-primary-foreground/10 bg-primary/95 p-4 shadow-elevated backdrop-blur-xl">
             <nav className="flex flex-col gap-1">
               {navigationLinks.map((link) => (
                 <Link
