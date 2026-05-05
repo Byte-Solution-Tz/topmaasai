@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 
@@ -30,6 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <LoadingScreen />
+        <ScrollProgressBar />
         <div className="flex min-h-screen flex-col bg-background">
           <Navbar />
           <main className="flex-1">{children}</main>

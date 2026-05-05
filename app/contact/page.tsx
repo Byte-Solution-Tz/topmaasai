@@ -20,11 +20,13 @@ const contactItems = [
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Contact"
-        title="Let's begin a conversation."
-        description="Whether you are sourcing a single rare stone or building a long-term partnership, our team is ready to help."
-      />
+      <div className="-mt-36 bg-primary pt-36">
+        <PageHeader
+          eyebrow="Contact"
+          title="Let's begin a conversation."
+          description="Whether you are sourcing a single rare stone or building a long-term partnership, our team is ready to help."
+        />
+      </div>
 
       <section className="section">
         <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
@@ -57,7 +59,6 @@ export default function ContactPage() {
             </ul>
 
             <div className="relative mt-12 overflow-hidden rounded-md bg-primary p-8 text-primary-foreground">
-              <div className="maasai-border absolute inset-x-0 top-0 opacity-90" />
               <p className="text-2xl leading-snug">"Trust is the rarest gem we offer."</p>
               <p className="mt-4 text-xs uppercase tracking-[0.22em] text-accent">Top Maasai Mining Co.</p>
             </div>

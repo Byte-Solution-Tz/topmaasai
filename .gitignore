@@ -12,6 +12,7 @@ dist
 dist-ssr
 .next
 tsconfig.tsbuildinfo
+from-calude
 *.local
 
 # Editor directories and files
@@ -24,3 +25,4 @@ tsconfig.tsbuildinfo
 *.njsproj
 *.sln
 *.sw?
+

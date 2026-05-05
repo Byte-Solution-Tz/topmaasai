@@ -14,11 +14,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="About Us"
-        title="Three decades. One unwavering standard."
-        description="From a single mining concession in Mererani to a global supplier of fine gemstones, our story is one of patience, partnership, and pride in our heritage."
-      />
+      <div className="-mt-36 bg-primary pt-36">
+        <PageHeader
+          eyebrow="About Us"
+          title="Three decades. One unwavering standard."
+          description="From a single mining concession in Mererani to a global supplier of fine gemstones, our story is one of patience, partnership, and pride in our heritage."
+        />
+      </div>
 
       <section className="section">
         <div className="container-x grid gap-14 lg:grid-cols-12">

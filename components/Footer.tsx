@@ -7,8 +7,18 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="maasai-border opacity-80" />
+    <footer className="relative overflow-hidden bg-primary text-primary-foreground">
+      <div className="pointer-events-none absolute bottom-20 right-6 hidden lg:block">
+        <div className="rotate-[10deg] drop-shadow-[0_26px_46px_rgba(0,0,0,0.38)]">
+          <Image
+            src="/images/tanzanite-removebg-preview.png"
+            alt=""
+            width={220}
+            height={220}
+            className="h-36 w-36 object-contain opacity-90"
+          />
+        </div>
+      </div>
       <div className="container-x grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="mb-6 inline-flex items-center" aria-label="Top Maasai home">
@@ -54,7 +64,7 @@ export function Footer() {
 
         <div>
           <h2 className="mb-5 text-xs uppercase tracking-[0.22em] text-accent">Contact</h2>
-          <ul className="space-y-4 text-sm text-primary-foreground/80">
+          <ul className="space-y-4 pr-0 text-sm text-primary-foreground/80 lg:pr-36">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>{contactDetails.address}</span>

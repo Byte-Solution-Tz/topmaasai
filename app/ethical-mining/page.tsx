@@ -13,11 +13,13 @@ export const metadata: Metadata = {
 export default function EthicalMiningPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Ethical Mining"
-        title="A standard worth keeping."
-        description="The history of African mining holds difficult chapters. We exist to write a different one and to prove that integrity and excellence are inseparable."
-      />
+      <div className="-mt-36 bg-primary pt-36">
+        <PageHeader
+          eyebrow="Ethical Mining"
+          title="A standard worth keeping."
+          description="The history of African mining holds difficult chapters. We exist to write a different one and to prove that integrity and excellence are inseparable."
+        />
+      </div>
 
       <section className="section">
         <div className="container-x grid gap-14 lg:grid-cols-12">
