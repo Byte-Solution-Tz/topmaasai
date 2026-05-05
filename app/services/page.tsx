@@ -12,11 +12,13 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Our Services"
-        title="From the earth to the atelier."
-        description="Five specialized services, one continuous chain of custody, each backed by decades of expertise and an uncompromising commitment to quality."
-      />
+      <div className="-mt-36 bg-primary pt-36">
+        <PageHeader
+          eyebrow="Our Services"
+          title="From the earth to the atelier."
+          description="Five specialized services, one continuous chain of custody, each backed by decades of expertise and an uncompromising commitment to quality."
+        />
+      </div>
 
       <ImmersiveServices />
 

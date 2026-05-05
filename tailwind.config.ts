@@ -60,15 +60,6 @@ export default {
         card: "var(--shadow-card)",
         elevated: "var(--shadow-elevated)",
       },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
-      animation: {
-        marquee: "marquee 28s linear infinite",
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 4px)",

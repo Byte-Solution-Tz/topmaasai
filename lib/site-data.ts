@@ -64,7 +64,7 @@ export const trustSignals: TrustSignal[] = [
   { icon: Award, label: "30+ Years", description: "Of trusted expertise" },
   { icon: Leaf, label: "Ethical Mining", description: "Responsible sourcing" },
   { icon: Globe2, label: "Global Reach", description: "Clients in 25+ countries" },
-  { icon: ShieldCheck, label: "Certified Quality", description: "Internationally graded" },
+  { icon: ShieldCheck, label: " Quality", description: "Internationally graded" },
 ];
 
 export const serviceHighlights: IconCard[] = [

@@ -73,7 +73,6 @@ export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
           ) : null}
         </div>
       </div>
-      <div className="maasai-border absolute inset-x-0 bottom-0 opacity-90" />
     </section>
   );
 }

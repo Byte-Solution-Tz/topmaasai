@@ -125,7 +125,6 @@ export function ImmersiveServices() {
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/78 to-primary/24" />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/78 via-primary/34 to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,hsl(var(--accent)/0.12),transparent_24%)]" />
-            <div className="maasai-border absolute inset-x-0 top-0 opacity-50" />
 
             <div className="absolute inset-0 flex items-end" data-panel-text>
               <div className="container-x w-full pb-16 md:pb-24 lg:pb-28">

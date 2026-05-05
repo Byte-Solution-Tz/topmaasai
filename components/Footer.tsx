@@ -8,7 +8,6 @@ const currentYear = new Date().getFullYear();
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="maasai-border opacity-80" />
       <div className="pointer-events-none absolute bottom-20 right-6 hidden lg:block">
         <div className="rotate-[10deg] drop-shadow-[0_26px_46px_rgba(0,0,0,0.38)]">
           <Image

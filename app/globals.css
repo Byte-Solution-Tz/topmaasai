@@ -16,6 +16,10 @@
     --primary-foreground: 43 27% 97%;
     --accent: 39 75% 53%;
     --accent-foreground: 236 46% 12%;
+    --gold: 39 75% 53%;
+    --gold-foreground: 236 46% 12%;
+    --emerald-deep: 167 43% 27%;
+    --heritage: 236 46% 12%;
     --secondary: 43 20% 93%;
     --secondary-foreground: 236 46% 12%;
     --muted: 43 15% 92%;
@@ -30,8 +34,11 @@
     --earth: 28 35% 38%;
     --gradient-hero: linear-gradient(180deg, hsl(236 46% 12% / 0.55) 0%, hsl(236 46% 8% / 0.85) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(39 75% 58%), hsl(35 70% 45%));
+    --gradient-heritage: linear-gradient(135deg, hsl(39 75% 53% / 0.28), hsl(167 43% 27% / 0.4) 52%, hsl(236 46% 12% / 0.78));
     --shadow-card: 0 1px 2px hsl(236 46% 12% / 0.04), 0 8px 24px -8px hsl(236 46% 12% / 0.08);
     --shadow-elevated: 0 24px 60px -20px hsl(236 46% 12% / 0.25);
+    --shadow-deep: 0 32px 72px hsl(236 46% 12% / 0.28);
+    --shadow-soft: 0 20px 44px hsl(39 75% 53% / 0.28);
   }
 
   * {
@@ -87,12 +94,12 @@
     @apply inline-block h-px w-8 bg-accent;
   }
 
-  .maasai-border {
+  .grain {
     background-image:
-      linear-gradient(135deg, hsl(var(--accent)) 25%, transparent 25%),
-      linear-gradient(225deg, hsl(var(--accent)) 25%, transparent 25%);
-    background-position: 0 0, 7px 0;
-    background-size: 14px 14px;
-    height: 8px;
+      radial-gradient(circle at 20% 20%, hsl(0 0% 100% / 0.08) 0, transparent 22%),
+      radial-gradient(circle at 80% 30%, hsl(236 46% 12% / 0.06) 0, transparent 18%),
+      radial-gradient(circle at 40% 70%, hsl(0 0% 100% / 0.06) 0, transparent 20%);
+    background-size: 180px 180px, 220px 220px, 200px 200px;
+    background-position: 0 0, 40px 60px, 100px 120px;
   }
 }
