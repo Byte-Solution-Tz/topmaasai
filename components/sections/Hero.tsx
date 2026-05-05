@@ -191,7 +191,7 @@ export function Hero() {
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section
         ref={heroSectionRef}
-        className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden text-primary-foreground"
+        className="relative -mt-36 flex min-h-[calc(100svh+4rem)] items-center overflow-hidden pt-36 text-primary-foreground"
       >
         <Image
           src="/images/hero-tanzanite.jpg"
