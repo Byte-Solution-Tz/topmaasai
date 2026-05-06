@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import {
   Award,
   Coins,
-  Compass,
+  Crosshair,
   Eye,
   FileSearch,
   Gem,
@@ -139,13 +139,13 @@ export const ethicalHighlights = [
 
 export const aboutPillars: IconCard[] = [
   {
-    icon: Compass,
+    icon: Eye,
     title: "Vision",
     description:
       "To position Tanzania's mining sector on the global stage through ethical trade, exceptional craftsmanship, and trusted partnerships.",
   },
   {
-    icon: Eye,
+    icon: Crosshair,
     title: "Mission",
     description:
       "To connect miners, craftsmen, and global buyers through transparent sourcing, responsible mining practices, and a commitment to quality in every gemstone we deliver.",
