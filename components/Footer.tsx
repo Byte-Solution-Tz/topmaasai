@@ -24,11 +24,11 @@ export function Footer() {
         <div className="rounded-[2rem] bg-primary px-7 py-10 text-primary-foreground shadow-elevated md:px-12 md:py-14 lg:px-16">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="eyebrow mb-5">Contact Us</p>
-              <h2 className="max-w-2xl font-heading text-4xl font-medium leading-[1.1] tracking-[-0.02em] md:text-5xl">
+              <p className="eyebrow mb-6 text-sm">Contact Us</p>
+              <h2 className="max-w-3xl font-heading text-3xl font-medium leading-[1.08] tracking-[-0.02em] md:text-5xl">
                 Connect with Top Maasai Mining Co.
               </h2>
-              <p className="mt-6 max-w-xl font-body text-base leading-[1.7] text-primary-foreground/72 md:text-lg">
+              <p className="mt-7 max-w-2xl font-body text-lg leading-[1.7] text-primary-foreground/76 md:text-xl">
                 We connect miners, craftsmen, and global buyers through transparent sourcing,
                 responsible mining practices, and quality in every gemstone we deliver.
               </p>
@@ -37,13 +37,13 @@ export function Footer() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-7 text-sm font-semibold text-accent-foreground shadow-card transition-all hover:bg-accent/90 hover:shadow-elevated"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-accent px-8 text-base font-semibold text-accent-foreground shadow-card transition-all hover:bg-accent/90 hover:shadow-elevated"
               >
                 Contact Us <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-primary-foreground/40 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex min-h-14 items-center justify-center rounded-full border border-primary-foreground/40 px-8 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 Our Services
               </Link>
@@ -57,26 +57,24 @@ export function Footer() {
               <Image
                 src="/images/top-maasai-logo.png"
                 alt="Top Maasai"
-                width={250}
-                height={250}
-                className="h-20 w-auto"
+                width={150}
+                height={150}
+                className="h-22 w-auto"
               />
             </Link>
-            <p className="max-w-xs font-body text-sm leading-[1.7] text-muted-foreground">
-              Authentic Earth&apos;s Rare Minerals, From Source to Market.
-            </p>
+            
           </div>
 
           <div>
-            <h2 className="mb-5 text-base font-semibold text-primary">Explore</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <h2 className="mb-6 font-heading text-2xl font-semibold text-primary">Explore</h2>
+            <ul className="space-y-4 text-base leading-[1.7] text-muted-foreground">
               {navigationLinks
                 .filter((link) => link.href !== "/")
                 .map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="inline-flex items-center gap-2 hover:text-accent">
                       {link.label}
-                      <ArrowUpRight className="h-3 w-3" />
+                      <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   </li>
                 ))}
@@ -84,8 +82,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-5 text-base font-semibold text-primary">Services</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <h2 className="mb-6 font-heading text-2xl font-semibold text-primary">Services</h2>
+            <ul className="space-y-4 text-base leading-[1.7] text-muted-foreground">
               <li>Gemstone Sourcing</li>
               <li>Rare Earth Minerals</li>
               <li>Lapidary &amp; Cutting</li>
@@ -95,20 +93,20 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-5 text-base font-semibold text-primary">Contact</h2>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <h2 className="mb-6 font-heading text-2xl font-semibold text-primary">Contact</h2>
+            <ul className="space-y-5 text-base leading-[1.7] text-muted-foreground">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-accent" />
                 <span>{contactDetails.address}</span>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <Mail className="mt-1 h-5 w-5 shrink-0 text-accent" />
                 <a href={`mailto:${contactDetails.email}`} className="hover:text-accent">
                   {contactDetails.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <Phone className="mt-1 h-5 w-5 shrink-0 text-accent" />
                 <a href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`} className="hover:text-accent">
                   {contactDetails.phone}
                 </a>
@@ -117,7 +115,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-border/70 pt-6 text-xs text-muted-foreground md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border/70 pt-6 text-sm text-muted-foreground md:flex-row">
           <p>&copy; {currentYear} Top Maasai Mining Co. All rights reserved.</p>
           <p>Arusha · Tanzania · Est. 1994</p>
         </div>

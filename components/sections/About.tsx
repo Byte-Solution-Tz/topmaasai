@@ -158,7 +158,7 @@ export function AboutSection() {
           >
             From the heart of Mererani
             <br />
-            <span className="italic text-[hsl(var(--emerald-deep))]">to the world.</span>
+            <span className="italic text-[hsl(var(--gold))]">to the world.</span>
           </motion.h2>
 
           <motion.p
@@ -190,7 +190,7 @@ export function AboutSection() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-8 max-w-xl border-l-2 border-accent pl-5 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-primary md:text-3xl"
           >
-            "Everyone in the business chain should eat — each person deserves the value of their work."
+            "Everyone in the business chain should eat, each person deserves the value of their work."
             <footer className="mt-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-foreground/50">
               Founder, Joram Meagie Lukumay (Balozi)
             </footer>

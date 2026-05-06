@@ -10,9 +10,8 @@ import { buttonClasses } from "@/lib/styles";
 type HeadlineWord = { label: string; accent?: boolean };
 
 const headlineWords: HeadlineWord[] = [
-  { label: "Authentic" },
-  { label: "Earth's" },
-  { label: "Rare" },
+  // { label: "Authentic" },
+  { label: "Tanzanian" },
   { label: "Minerals," },
   { label: "From" },
   { label: "Source" },
@@ -170,7 +169,7 @@ export function Hero() {
         />
 
         <div className="container-x relative z-10 py-20">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
               <p className="eyebrow mb-7" data-hero-eyebrow>
                 From the Heart of Mererani to the World
               </p>
