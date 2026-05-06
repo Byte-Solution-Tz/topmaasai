@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { CtaSection } from "@/components/sections/CTA";
 import { ImmersiveServices } from "@/components/sections/ImmersiveServices";
 import { PageHeader } from "@/components/sections/PageHeader";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Top Maasai Mining Co. services across gemstone sourcing, lapidary, jewelry production, rare minerals, and mining partnerships.",
+    "Explore Top Maasai Mining Co. services across mineral sourcing, rare earth minerals, in-house lapidary cutting, jewelry production, mining investment, and export support.",
 };
 
 export default function ServicesPage() {
@@ -15,14 +14,12 @@ export default function ServicesPage() {
       <div className="-mt-36 bg-primary pt-36">
         <PageHeader
           eyebrow="Our Services"
-          title="From the earth to the atelier."
-          description="Five specialized services, one continuous chain of custody, each backed by decades of expertise and an uncompromising commitment to quality."
+          title="Authentic Earth's Rare Minerals, From Source to Market."
+          description="We combine direct gemstone and mineral sourcing, rare earth mineral sourcing, in-house lapidary cutting, custom jewelry production, mining investment partnerships, and export support for international buyers."
         />
       </div>
 
       <ImmersiveServices />
-
-      <CtaSection />
     </>
   );
 }

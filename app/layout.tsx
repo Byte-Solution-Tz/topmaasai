@@ -7,14 +7,17 @@ import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: {
-    default: "Top Maasai Mining Co.",
+    default: "Top Maasai Mining Co. | Tanzanian Gemstones from Mererani",
     template: "%s | Top Maasai Mining Co.",
   },
-  description: "Authentic Tanzanian gemstones and rare minerals from source to market.",
+  description:
+    "Top Maasai Mining Co. is a Tanzania-based gemstone sourcing, mining investment and jewelry production company delivering ethically sourced gemstones from Mererani to global markets.",
   keywords: [
     "Tanzanian gemstones",
-    "tanzanite supplier",
-    "ethical mining Tanzania",
+    "ethically sourced gemstones",
+    "Mererani mining",
+    "gemstone suppliers Tanzania",
+    "mining investment Africa",
     "rare minerals",
     "gemstone sourcing",
   ],

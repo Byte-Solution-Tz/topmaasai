@@ -10,8 +10,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Cormorant Garamond"', "Georgia", "serif"],
-        sans: ["Lato", "system-ui", "sans-serif"],
+        heading: ['"Playfair Display"', "serif"],
+        body: ["Inter", "sans-serif"],
+        serif: ['"Playfair Display"', "serif"],
+        sans: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
