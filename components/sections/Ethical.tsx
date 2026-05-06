@@ -3,314 +3,187 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { ethicalHighlights } from "@/lib/site-data";
-import { buttonClasses } from "@/lib/styles";
+
+const toRoman = (n: number) =>
+  ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][n - 1] ?? String(n);
 
 export function EthicalSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const pinRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      const section = sectionRef.current;
-      if (!section) return;
+      const root = rootRef.current;
+      if (!root) return;
 
       const media = gsap.matchMedia();
 
-      media.add(
-        "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
-        () => {
-          const bullets = gsap.utils.toArray<HTMLElement>(
-            "[data-ethical-bullet]",
-            section,
-          );
-
-          // Initial states — everything hidden, image zoomed-in like we're inside it
-          gsap.set("[data-ethical-image]", {
-            scale: 1.35,
-            opacity: 0.4,
-            filter: "blur(14px) brightness(0.55)",
-            willChange: "transform, opacity, filter",
-          });
-          gsap.set("[data-ethical-vignette]", { opacity: 1 });
-          gsap.set("[data-ethical-grain]", { opacity: 0 });
-          gsap.set("[data-ethical-kicker]", { opacity: 0, y: 30, letterSpacing: "0.4em" });
-          gsap.set("[data-ethical-title-line]", { opacity: 0, yPercent: 110, rotate: 2 });
-          gsap.set("[data-ethical-copy]", { opacity: 0, y: 40, filter: "blur(8px)" });
-          gsap.set("[data-ethical-progress]", { scaleX: 0, transformOrigin: "left center" });
-          gsap.set(bullets, { opacity: 0, x: -60, filter: "blur(6px)" });
-          gsap.set("[data-ethical-bullet-num]", { opacity: 0, scale: 0.4 });
-          gsap.set("[data-ethical-cta]", { opacity: 0, y: 30, scale: 0.92 });
-          gsap.set("[data-ethical-stat-num]", { opacity: 0, scale: 0.6, y: 40 });
-          gsap.set("[data-ethical-stat-label]", { opacity: 0, y: 16 });
-
-          const tl = gsap.timeline({
-            defaults: { ease: "none" },
-            scrollTrigger: {
-              trigger: section,
-              pin: pinRef.current,
-              start: "top top",
-              end: "+=320%",
-              scrub: 1.1,
-              anticipatePin: 1,
-              invalidateOnRefresh: true,
-            },
-          });
-
-          // ACT 1 — Dive in: lens pulls focus, image surfaces from the depths
-          tl.to(
-            "[data-ethical-image]",
-            {
-              scale: 1,
-              opacity: 1,
-              filter: "blur(0px) brightness(1)",
-              duration: 1,
-              ease: "power2.out",
-            },
-            0,
-          )
-            .to("[data-ethical-vignette]", { opacity: 0.55, duration: 1 }, 0)
-            .to("[data-ethical-grain]", { opacity: 0.18, duration: 0.6 }, 0.2)
-
-            // ACT 2 — Voice arrives: kicker tightens, title rises in lines
-            .to(
-              "[data-ethical-kicker]",
-              { opacity: 1, y: 0, letterSpacing: "0.25em", duration: 0.5, ease: "power3.out" },
-              0.55,
-            )
-            .to(
-              "[data-ethical-title-line]",
-              {
-                opacity: 1,
-                yPercent: 0,
-                rotate: 0,
-                duration: 0.7,
-                stagger: 0.12,
-                ease: "expo.out",
-              },
-              0.7,
-            )
-            .to(
-              "[data-ethical-copy]",
-              { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" },
-              1.05,
-            )
-            .to("[data-ethical-progress]", { scaleX: 1, duration: 0.8, ease: "power1.inOut" }, 1.2)
-
-            // ACT 3 — Pillars surface one by one, each with a beat
-            .to(
-              bullets,
-              {
-                opacity: 1,
-                x: 0,
-                filter: "blur(0px)",
-                duration: 0.55,
-                stagger: 0.28,
-                ease: "power3.out",
-              },
-              1.4,
-            )
-            .to(
-              "[data-ethical-bullet-num]",
-              {
-                opacity: 1,
-                scale: 1,
-                duration: 0.4,
-                stagger: 0.28,
-                ease: "back.out(2)",
-              },
-              1.45,
-            )
-
-            // ACT 4 — Proof point lands, then the call
-            .to(
-              "[data-ethical-stat-num]",
-              { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "expo.out" },
-              2.55,
-            )
-            .to(
-              "[data-ethical-stat-label]",
-              { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
-              2.75,
-            )
-            .to(
-              "[data-ethical-cta]",
-              { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" },
-              2.9,
-            )
-
-            // Continuous parallax — image breathes throughout the journey
-            .to("[data-ethical-image]", { yPercent: -10 }, 0)
-            .to("[data-ethical-grain]", { backgroundPosition: "200px 200px" }, 0);
-        },
-      );
-
-      media.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
-        const elements = gsap.utils.toArray<HTMLElement>(
-          "[data-ethical-reveal]",
-          section,
+      media.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          "[data-ethical-rule]",
+          { scaleX: 0, transformOrigin: "left center" },
+          {
+            scaleX: 1,
+            duration: 1,
+            ease: "power3.inOut",
+            scrollTrigger: { trigger: "[data-ethical-header]", start: "top 82%", once: true },
+          },
         );
-        if (!elements.length) return;
 
-        gsap.set(elements, { opacity: 0, y: 30, willChange: "transform, opacity" });
-        gsap.to(elements, {
+        const cards = gsap.utils.toArray<HTMLElement>("[data-ethical-card]", root);
+        gsap.set(cards, { opacity: 0, y: 60, willChange: "transform, opacity" });
+        gsap.to(cards, {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.8,
+          stagger: { amount: 0.4, from: "start" },
           ease: "power2.out",
           clearProps: "opacity,transform,willChange",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            once: true,
-            invalidateOnRefresh: true,
-          },
+          scrollTrigger: { trigger: "[data-ethical-grid]", start: "top 82%", once: true },
         });
+      });
+
+      media.add("(hover: hover) and (prefers-reduced-motion: no-preference)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>("[data-ethical-card]", root);
+
+        const cleanups = cards.map((card) => {
+          const img = card.querySelector<HTMLElement>("[data-card-img]");
+          const overlay = card.querySelector<HTMLElement>("[data-card-overlay]");
+          const arrow = card.querySelector<HTMLElement>("[data-card-arrow]");
+
+          const enter = () => {
+            if (img) gsap.to(img, { scale: 1.07, duration: 0.55, ease: "power2.out", overwrite: "auto" });
+            if (overlay) gsap.to(overlay, { opacity: 1, duration: 0.35, ease: "power1.out", overwrite: "auto" });
+            if (arrow) gsap.to(arrow, { x: 2, y: -2, opacity: 1, duration: 0.25, ease: "power2.out", overwrite: "auto" });
+          };
+          const leave = () => {
+            if (img) gsap.to(img, { scale: 1, duration: 0.5, ease: "power2.inOut", overwrite: "auto" });
+            if (overlay) gsap.to(overlay, { opacity: 0, duration: 0.35, ease: "power1.out", overwrite: "auto" });
+            if (arrow) gsap.to(arrow, { x: 0, y: 0, opacity: 0.4, duration: 0.25, ease: "power2.out", overwrite: "auto" });
+          };
+
+          card.addEventListener("mouseenter", enter);
+          card.addEventListener("mouseleave", leave);
+          return () => {
+            card.removeEventListener("mouseenter", enter);
+            card.removeEventListener("mouseleave", leave);
+          };
+        });
+
+        return () => cleanups.forEach((cleanup) => cleanup());
+      });
+
+      media.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(gsap.utils.toArray("[data-ethical-card]", root), { clearProps: "all" });
       });
 
       return () => media.revert();
     },
-    { scope: sectionRef },
+    { scope: rootRef },
   );
 
-  // Split the title into lines for staggered reveal
-  const titleLines = ["The right way", "is the only way."];
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#0b0b0b] text-white"
-      style={{ height: "420vh" }}
-    >
-      <div ref={pinRef} className="relative h-screen w-full overflow-hidden">
-        {/* Cinematic backdrop */}
-        <div className="absolute inset-0">
-          <div data-ethical-image className="absolute inset-0">
-            <Image
-              src="/images/ethical-mining.jpg"
-              alt="Tanzanian miners working ethically at sunrise"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
+    <section ref={rootRef} className="relative overflow-hidden bg-primary py-24 text-primary-foreground md:py-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-cover bg-bottom bg-no-repeat opacity-[0.10] mix-blend-luminosity"
+        style={{ backgroundImage: "url('/images/top-maasai-service-section-bg.png')" }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-repeat mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url('/images/grain.png'), radial-gradient(circle at 18% 28%, hsl(var(--gold) / 0.22) 0 1px, transparent 1.6px), radial-gradient(circle at 72% 64%, hsl(var(--earth) / 0.28) 0 1px, transparent 1.8px)",
+          backgroundSize: "420px 236px, 18px 18px, 27px 27px",
+          opacity: 0.28,
+        }}
+      />
+
+      <div className="container-x relative">
+        <div
+          data-ethical-header
+          className="mb-14 grid items-end gap-8 border-b border-primary-foreground/10 pb-12 md:grid-cols-[1fr_auto] md:mb-16"
+        >
+          <div>
+            <p className="eyebrow mb-5 !text-accent/80">Ethical Mining</p>
+            <h2 className="font-heading text-4xl leading-[1.1] tracking-[-0.02em] md:text-5xl">
+              Fairness, dignity,
+              <br />
+              <em className="text-accent not-italic">and responsibility.</em>
+            </h2>
           </div>
-
-          {/* Vignette gradient — keeps text readable, deepens immersion */}
-          <div
-            data-ethical-vignette
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.85)_85%)]"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
-
-          {/* Subtle film grain for tactile depth */}
-          <div
-            data-ethical-grain
-            className="pointer-events-none absolute inset-0 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")",
-            }}
-          />
+          <div className="mb-1 max-w-[300px]">
+            <div className="mb-4 h-px bg-accent" data-ethical-rule />
+            <p className="font-body text-sm leading-[1.7] text-primary-foreground/62">
+              Ethical mining is not just a statement. It is our operating philosophy.
+            </p>
+          </div>
         </div>
 
-        {/* Content grid */}
-        <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-12 lg:px-10">
-          {/* LEFT — narrative */}
-          <div className="col-span-1 flex flex-col justify-center lg:col-span-7">
-            <span
-              data-ethical-kicker
-              data-ethical-reveal
-              className="mb-6 inline-block text-xs font-medium uppercase tracking-[0.4em] text-amber-300/90"
+        <div data-ethical-grid className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {ethicalHighlights.map((item, index) => (
+            <Link
+              key={item}
+              href="/ethical-mining"
+              data-ethical-card
+              className="group relative overflow-hidden rounded-[2px]"
+              style={{ minHeight: "320px" }}
             >
-              — Ethical Mining
-            </span>
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src="/images/ethical-landscape.jpg"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover will-change-transform"
+                  data-card-img
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/78 to-primary/18" />
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
+                <div data-card-overlay className="absolute inset-0 bg-primary/25" style={{ opacity: 0 }} />
+              </div>
 
-            <h2
-              data-ethical-reveal
-              className="mb-8 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
-            >
-              {titleLines.map((line, i) => (
-                <span key={i} className="block overflow-hidden">
-                  <span data-ethical-title-line className="block">
-                    {line}
+              <div className="absolute inset-0 rounded-[2px] border border-accent/25 transition-colors duration-500 group-hover:border-accent/55" />
+
+              <div className="absolute left-5 top-5 z-10" aria-hidden="true">
+                <div className="absolute left-0 top-0 h-4 w-px bg-accent/60" />
+                <div className="absolute left-0 top-0 h-px w-4 bg-accent/60" />
+              </div>
+
+              <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 md:p-7">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-light tracking-[0.45em] text-accent/70">
+                    {toRoman(index + 1)}
                   </span>
-                </span>
-              ))}
-            </h2>
+                  <ArrowUpRight
+                    data-card-arrow
+                    className="h-3.5 w-3.5 text-primary-foreground/40"
+                    style={{ opacity: 0.4 }}
+                  />
+                </div>
 
-            <p
-              data-ethical-copy
-              data-ethical-reveal
-              className="mb-10 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl"
-            >
-              We believe Tanzania&apos;s mineral wealth must benefit the people who
-              call this land home — and the environment that sustains it.
-            </p>
-
-            {/* Progress line — visual narrator */}
-            <div
-              data-ethical-reveal
-              className="mb-10 h-px w-full max-w-md overflow-hidden bg-white/10"
-            >
-              <div data-ethical-progress className="h-full w-full bg-amber-300" />
-            </div>
-
-            {/* Pillars */}
-            <ul className="mb-12 space-y-6">
-              {ethicalHighlights.map((item, index) => (
-                <li
-                  key={index}
-                  data-ethical-bullet
-                  data-ethical-reveal
-                  className="group flex items-start gap-5 border-l border-white/10 pl-5 transition-colors hover:border-amber-300/60"
-                >
-                  <span
-                    data-ethical-bullet-num
-                    className="mt-1 font-mono text-sm tracking-widest text-amber-300/80"
-                  >
-                    0{index + 1}
-                  </span>
-                  <p className="text-base leading-relaxed text-white/85 md:text-lg">
+                <div style={{ textShadow: "0 2px 14px rgb(0 0 0 / 0.85)" }}>
+                  <div className="mb-4 h-px w-full bg-primary-foreground/35" />
+                  <h3 className="font-heading text-lg font-medium leading-[1.18] tracking-[-0.01em] text-primary-foreground md:text-xl">
                     {item}
-                  </p>
-                </li>
-              ))}
-            </ul>
-
-            <div data-ethical-cta data-ethical-reveal>
-              <Link
-                href="/about#commitment"
-                className={`${buttonClasses.gold} group inline-flex items-center gap-2`}
-              >
-                Read Our Commitment
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT — proof point */}
-          <div className="col-span-1 hidden flex-col justify-end lg:col-span-5 lg:flex">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
-              <div
-                data-ethical-stat-num
-                data-ethical-reveal
-                className="font-serif text-7xl leading-none text-amber-300"
-              >
-                100%
+                  </h3>
+                </div>
               </div>
-              <div
-                data-ethical-stat-label
-                data-ethical-reveal
-                className="mt-3 text-sm uppercase tracking-[0.3em] text-white/70"
-              >
-                Audited supply chain
-              </div>
-            </div>
-          </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/ethical-mining"
+            className="group inline-flex items-center gap-3 border border-primary-foreground/20 px-8 py-3.5 font-body text-[10px] uppercase tracking-[0.2em] text-primary-foreground/60 transition-colors hover:border-accent/50 hover:text-accent"
+          >
+            <span className="h-px w-6 bg-current transition-all group-hover:w-10" />
+            Read our commitment
+          </Link>
         </div>
       </div>
     </section>

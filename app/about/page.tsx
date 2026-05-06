@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Globe2 } from "lucide-react";
-import { CtaSection } from "@/components/sections/CTA";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { aboutPillars, globalReachStats } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn how Top Maasai Mining Co. grew from a Mererani mining concession into a trusted Tanzanian gemstone and mineral partner.",
+    "Learn how Top Maasai Mining Co. grew from a Mererani gemstone brokerage into a trusted network connecting miners, craftsmen, and global buyers.",
 };
 
 export default function AboutPage() {
@@ -17,8 +16,8 @@ export default function AboutPage() {
       <div className="-mt-36 bg-primary pt-36">
         <PageHeader
           eyebrow="About Us"
-          title="Three decades. One unwavering standard."
-          description="From a single mining concession in Mererani to a global supplier of fine gemstones, our story is one of patience, partnership, and pride in our heritage."
+          title="From the Heart of Mererani to the World"
+          description="What started as a brokerage among colleagues in the gemstone trade gradually grew into a trusted network connecting miners, craftsmen, and global buyers."
         />
       </div>
 
@@ -27,26 +26,24 @@ export default function AboutPage() {
           <aside className="lg:col-span-4">
             <p className="eyebrow mb-5">Our Heritage</p>
             <h2 className="text-4xl leading-tight text-primary md:text-5xl">
-              A family business,
+              A second-generation
               <br />
-              forged in the highlands.
+              family business.
             </h2>
           </aside>
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-8">
             <p>
-              Top Maasai Mining Co. was founded in 1994 by Maasai elders and their sons on a single
-              tanzanite concession in the Mererani Hills, the only place on earth where this rare blue gem
-              is found.
+              In 1993, in the mineral-rich lands of Mererani, Arusha, a passionate gemstone trader
+              named Joram Meagie Lukumay (Balozi) began a humble journey.
             </p>
             <p>
-              What began as a small artisanal operation has grown into a vertically integrated company
-              supplying tanzanite, ruby, sapphire, garnet, and rare earth minerals to buyers across four
-              continents.
+              What started as a brokerage among colleagues in the gemstone trade gradually grew into
+              something greater: a trusted network connecting miners, craftsmen, and global buyers.
             </p>
             <p>
-              Through every chapter, we have held to the principle that the wealth of the earth should
-              benefit the people and places closest to it, and that long-term trust matters more than any
-              single transaction.
+              Today, the company continues as a second-generation family business, expanding its reach
+              across East Africa, Europe, Thailand, Singapore, China and beyond, while staying rooted in
+              the values that started it all.
             </p>
             <Image
               src="/images/about-hands.jpg"
@@ -93,14 +90,13 @@ export default function AboutPage() {
           <div className="order-1 lg:order-2">
             <p className="eyebrow mb-5">Global Reach</p>
             <h2 className="text-4xl leading-tight text-primary md:text-5xl">
-              Local roots.
+              Rooted in Tanzania.
               <br />
-              International standards.
+              Connected to the world.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Our stones travel from the Mererani Hills to ateliers in Geneva, New York, Mumbai, Hong
-              Kong, and Dubai. Every shipment is accompanied by documented provenance and export
-              certification.
+              We connect people to the natural beauty of Tanzania, to the communities that mine these
+              treasures, and to the stories held within every stone.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-6">
               {globalReachStats.map((stat) => (
@@ -114,13 +110,12 @@ export default function AboutPage() {
             </div>
             <div className="mt-10 flex items-center gap-3 text-muted-foreground">
               <Globe2 className="h-5 w-5 text-accent" />
-              <span className="text-sm">Operating across four continents</span>
+              <span className="text-sm">East Africa, Europe, Thailand, Singapore, China and beyond</span>
             </div>
           </div>
         </div>
       </section>
 
-      <CtaSection />
     </>
   );
 }

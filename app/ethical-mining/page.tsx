@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CtaSection } from "@/components/sections/CTA";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { commitmentStats, ethicalPillars } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Ethical Mining",
   description:
-    "See the labor, environmental, and traceability standards that guide Top Maasai Mining Co. across every mining and sourcing operation.",
+    "See Top Maasai Mining Co.'s ethical mining philosophy: no child labor, responsible environmental practices, fair compensation, traceability, and compliance with government regulations.",
 };
 
 export default function EthicalMiningPage() {
@@ -16,8 +15,8 @@ export default function EthicalMiningPage() {
       <div className="-mt-36 bg-primary pt-36">
         <PageHeader
           eyebrow="Ethical Mining"
-          title="A standard worth keeping."
-          description="The history of African mining holds difficult chapters. We exist to write a different one and to prove that integrity and excellence are inseparable."
+          title="Ethical mining is our operating philosophy."
+          description="Every gemstone should carry a story of fairness, dignity, and responsibility."
         />
       </div>
 
@@ -26,17 +25,17 @@ export default function EthicalMiningPage() {
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7">
             <p className="eyebrow mb-2">Our Promise</p>
             <h2 className="text-4xl leading-tight text-primary md:text-5xl">
-              Every stone carries a story.
+              Every gemstone carries a story.
               <br />
-              We make sure it is one we can tell.
+              Fairness, dignity, and responsibility.
             </h2>
             <p>
-              For thirty years, we have operated on the belief that the people of Tanzania and the land
-              itself deserve better than extractive mining practices.
+              At Top Maasai Mining Co., ethical mining is not just a statement. It is our operating
+              philosophy.
             </p>
             <p>
-              That belief shapes who we hire, how we pay them, where we invest, and which buyers we
-              choose to work with. It is slower, harder, and the only way we are willing to operate.
+              We work closely with registered miners and community partners to ensure the gemstone
+              trade creates real value for the people behind it.
             </p>
           </div>
           <div className="lg:col-span-5">
@@ -93,7 +92,6 @@ export default function EthicalMiningPage() {
         </div>
       </section>
 
-      <CtaSection />
     </>
   );
 }

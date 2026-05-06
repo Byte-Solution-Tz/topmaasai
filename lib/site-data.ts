@@ -54,17 +54,17 @@ export const navigationLinks: LinkItem[] = [
 ];
 
 export const contactDetails = {
-  email: "info@topmaasaimining.com",
-  phone: "+255 000 000 000",
-  address: "Mererani Road, Arusha, Tanzania",
+  email: "info@topmaasai.com",
+  phone: "+255 (0)754 270 000",
+  address: "Arusha, Tanzania",
   hours: "Mon - Fri · 08:00 - 17:00 EAT",
 };
 
 export const trustSignals: TrustSignal[] = [
-  { icon: Award, label: "30+ Years", description: "Of trusted expertise" },
-  { icon: Leaf, label: "Ethical Mining", description: "Responsible sourcing" },
-  { icon: Globe2, label: "Global Reach", description: "Clients in 25+ countries" },
-  { icon: ShieldCheck, label: " Quality", description: "Internationally graded" },
+  { icon: Award, label: "30+ Years", description: "In the gemstone trade" },
+  { icon: Leaf, label: "Ethical Trade", description: "Responsible mining practices" },
+  { icon: Globe2, label: "Global Reach", description: "East Africa, Europe, Thailand, Singapore, China and beyond" },
+  { icon: ShieldCheck, label: "Certified Quality", description: "Professionally verified before sale" },
 ];
 
 export const serviceHighlights: IconCard[] = [
@@ -98,100 +98,111 @@ export const serviceHighlights: IconCard[] = [
 export const homeDifferentiators: IconCard[] = [
   {
     icon: Handshake,
-    title: "Direct from Source",
-    description: "We mine, cut, and export without unnecessary intermediaries.",
+    title: "Authenticity & Traceability",
+    description: "Every gemstone can be traced back to its origin, ensuring genuine value and transparency.",
   },
   {
     icon: ShieldCheck,
-    title: "Verified Provenance",
-    description: "Every parcel is documented and traceable from mine to market.",
+    title: "Over 30 Years of Experience",
+    description: "Three decades in the gemstone trade provides deep market knowledge and trusted relationships.",
   },
   {
     icon: Eye,
-    title: "Full Transparency",
-    description: "Clear communication, open pricing, and documented sourcing practices.",
+    title: "Direct Trade Model",
+    description: "We connect producers directly to buyers, eliminating unnecessary intermediaries.",
   },
   {
     icon: HeartHandshake,
-    title: "Fair Trade",
-    description: "Equitable wages and long-term investment in local communities.",
+    title: "Certified Quality",
+    description: "All gemstones are professionally verified before any sale transactions.",
+  },
+  {
+    icon: Globe2,
+    title: "Global Reach",
+    description:
+      "We serve clients across East Africa, Europe, Thailand, Singapore, China and other international gemstone markets.",
+  },
+  {
+    icon: Gem,
+    title: "End-to-End Services",
+    description: "From mineral sourcing to cutting and jewelry creation, we manage the entire journey.",
   },
 ];
 
 export const ethicalHighlights = [
-  "Strictly no child labor across our operations",
-  "Fair compensation and safe working conditions",
-  "Active environmental restoration programs",
-  "Full traceability and third-party audits",
+  "No child labor",
+  "Responsible environmental practices",
+  "Fair compensation for miners",
+  "Transparent traceability of gemstones",
+  "Compliance with government regulations",
 ];
 
 export const aboutPillars: IconCard[] = [
   {
     icon: Compass,
-    title: "Our Mission",
+    title: "Vision",
     description:
-      "To responsibly bring Tanzania's rare minerals to the world while uplifting the communities and lands from which they come.",
+      "To position Tanzania's mining sector on the global stage through ethical trade, exceptional craftsmanship, and trusted partnerships.",
   },
   {
     icon: Eye,
-    title: "Our Vision",
+    title: "Mission",
     description:
-      "To be Africa's most trusted name in ethical gemstone sourcing, recognized for craftsmanship, transparency, and heritage.",
+      "To connect miners, craftsmen, and global buyers through transparent sourcing, responsible mining practices, and a commitment to quality in every gemstone we deliver.",
   },
   {
     icon: Heart,
     title: "Our Values",
-    description:
-      "Integrity in every transaction, respect for people and place, and excellence in every stone we touch.",
+    description: "Ethics, Integrity, Excellence, Quality, Community.",
   },
 ];
 
 export const globalReachStats = [
-  { value: "25+", label: "Countries" },
-  { value: "120+", label: "Partners" },
-  { value: "1994", label: "Founded" },
+  { value: "East Africa", label: "Regional markets" },
+  { value: "Europe", label: "Global reach" },
+  { value: "Asia", label: "Thailand, Singapore, China" },
 ];
 
 export const serviceDetails: ServiceDetail[] = [
   {
     number: "01",
-    title: "Gemstone Sourcing",
+    title: "Mineral Sourcing",
     image: "/images/service-gemstone.jpg",
     description:
-      "Direct-from-origin tanzanite, ruby, sapphire, garnet, tourmaline, and a curated selection of rare African gems. Every parcel is inspected, graded, and documented at our Arusha facility.",
-    bullets: ["Origin certification", "Wholesale and single-stone supply", "GIA-aligned grading", "Discreet logistics"],
+      "We specialize in sourcing rare and valuable colored gemstones directly from trusted mines, including Tanzanite, ruby, sapphire, garnet, tourmaline, rhodolite and other rare colored stones.",
+    bullets: ["Trusted mines", "Colored gemstones", "Inspection", "Authentication and certification"],
   },
   {
     number: "02",
     title: "Rare Earth Minerals",
     image: "/images/service-minerals.jpg",
     description:
-      "Strategic and industrial minerals supplied to refiners, manufacturers, and research institutions with verified provenance and transparent pricing.",
-    bullets: ["Industrial mineral supply", "Custom volume contracts", "Export documentation", "Consistent quality control"],
+      "We specialize in sourcing rare earth minerals through trusted mining networks and verified producers, including lithium, graphite, nickel, rare earth elements, and other strategic industrial minerals.",
+    bullets: ["Trusted mining networks", "Verified producers", "Strategic industrial minerals", "Rare earth elements"],
   },
   {
     number: "03",
-    title: "Lapidary Services",
+    title: "Lapidary",
     image: "/images/service-lapidary.jpg",
     description:
-      "Master cutters with decades of experience shaping Tanzania's hardest stones, from precision faceting to bespoke calibration for jewelry houses.",
-    bullets: ["Faceting and polishing", "Calibrated stone cutting", "Custom shapes on request", "Loss-minimized yields"],
+      "Our in-house lapidary team ensures each gemstone reaches its highest potential through custom gemstone cuts, precision polishing, and quality finishing.",
+    bullets: ["In-house gem cutting", "Custom gemstone cuts", "Precision polishing", "Quality finishing"],
   },
   {
     number: "04",
     title: "Jewelry Production",
     image: "/images/service-jewelry.jpg",
     description:
-      "Bespoke fine jewelry produced in collaboration with select international designers and finished to global luxury standards.",
-    bullets: ["Bespoke design", "18k and platinum settings", "Small-batch production", "White-label partnerships"],
+      "We design and produce fine gemstone jewelry, including custom gemstone settings, bespoke jewelry pieces, and finished gemstone jewelry collections.",
+    bullets: ["Custom gemstone settings", "Bespoke jewelry pieces", "Finished collections", "Maasai women artisans"],
   },
   {
     number: "05",
     title: "Mining Investment",
     image: "/images/service-investment.jpg",
     description:
-      "Equity and joint-venture opportunities in licensed Tanzanian mining operations built on transparency, reporting discipline, and shared returns.",
-    bullets: ["Licensed concessions", "Joint-venture structures", "Audited reporting", "ESG-conscious operations"],
+      "We facilitate opportunities for investors to participate in mineral sourcing and mining ventures through trusted mining operations and valuable gemstone markets.",
+    bullets: ["Mineral sourcing", "Mining ventures", "Trusted operations", "Gemstone markets"],
   },
 ];
 
@@ -199,31 +210,27 @@ export const ethicalPillars: IconCard[] = [
   {
     icon: ShieldOff,
     title: "No Child Labor",
-    description:
-      "Our concessions are strictly adult-only, with worker verification and community support that keeps children in classrooms rather than mines.",
+    description: "Our ethical approach ensures no child labor.",
   },
   {
     icon: Coins,
-    title: "Fair Compensation",
-    description:
-      "Miners receive wages above regional averages together with safety equipment, health support, and performance-linked incentives.",
+    title: "Fair Compensation for Miners",
+    description: "Our ethical approach ensures fair compensation for miners.",
   },
   {
     icon: Trees,
-    title: "Environmental Responsibility",
-    description:
-      "We rehabilitate the sites we work through controlled extraction, water stewardship, and active reforestation programs.",
+    title: "Responsible Environmental Practices",
+    description: "Our ethical approach ensures responsible environmental practices.",
   },
   {
     icon: FileSearch,
-    title: "Radical Transparency",
-    description:
-      "Independent audits and documented chain-of-custody records allow buyers to trace every gem we sell back to origin.",
+    title: "Transparent Traceability",
+    description: "Our ethical approach ensures transparent traceability of gemstones.",
   },
 ];
 
 export const commitmentStats = [
-  { value: "0", label: "Cases of child labor - ever" },
-  { value: "100%", label: "Audited supply chain" },
-  { value: "1.2M+", label: "USD reinvested in communities" },
+  { value: "No", label: "Child labor" },
+  { value: "Fair", label: "Compensation for miners" },
+  { value: "Traceable", label: "Gemstone origin" },
 ];

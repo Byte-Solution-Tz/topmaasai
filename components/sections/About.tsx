@@ -70,7 +70,7 @@ export function AboutSection() {
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             className="absolute -left-6 bottom-10 right-10 -top-6 rounded-[2rem] border border-[hsl(var(--gold)/0.3)]"
-            style={{ y: cardY, background: "var(--gradient-heritage)" }}
+            style={{ y: cardY, background: "hsl(var(--primary))" }}
             aria-hidden="true"
           />
 
@@ -95,8 +95,8 @@ export function AboutSection() {
               style={{ clipPath: "url(#about-blob-clip)" }}
             >
               <motion.img
-                src="/images/about-hands.jpg"
-                alt="Maasai artisan holding a raw gemstone at golden hour"
+                src="/images/founder.png"
+                alt="Founder of Top Maasai"
                 width={896}
                 height={1152}
                 loading="lazy"
@@ -114,7 +114,7 @@ export function AboutSection() {
               <div
                 aria-hidden="true"
                 className="absolute inset-0 mix-blend-soft-light"
-                style={{ background: "var(--gradient-heritage)" }}
+                style={{ background: "hsl(var(--primary) / 0.45)" }}
               />
             </div>
           </motion.div>
@@ -134,14 +134,7 @@ export function AboutSection() {
             </span>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="absolute -right-2 top-10 rounded-full border border-border/60 bg-background/80 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-foreground/70 backdrop-blur-md md:-right-6"
-          >
-            Ethically Sourced
-          </motion.div>
+          
         </div>
 
         <div className="relative">
@@ -150,7 +143,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[hsl(var(--earth))]"
+            className="mb-6 inline-flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--gold))]"
           >
             <span className="h-px w-10 bg-[hsl(var(--earth))]" />
             About Us
@@ -161,11 +154,11 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-[4.25rem]"
+            className="font-heading text-4xl font-medium leading-[1.1] tracking-[-0.02em] text-foreground md:text-6xl lg:text-[4.25rem]"
           >
-            Rooted in the land.
+            From the heart of Mererani
             <br />
-            <span className="italic text-[hsl(var(--emerald-deep))]">Trusted</span> across the world.
+            <span className="italic text-[hsl(var(--emerald-deep))]">to the world.</span>
           </motion.h2>
 
           <motion.p
@@ -173,10 +166,10 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/75"
+            className="mt-8 max-w-xl font-body text-base leading-[1.7] text-foreground/72 md:text-lg"
           >
-            Founded in 1994 in the heart of Maasai country, our company combines generations of mining
-            knowledge with modern standards of ethics, certification, and craftsmanship.
+            In 1993, in the mineral-rich lands of Mererani, Arusha, Joram Meagie Lukumay (Balozi)
+            began a humble journey as a passionate gemstone trader.
           </motion.p>
 
           <motion.p
@@ -184,11 +177,24 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-foreground/65"
+            className="mt-5 max-w-xl font-body text-base leading-[1.7] text-foreground/65"
           >
-            We work alongside local artisans and international partners to deliver gemstones and minerals
-            of exceptional integrity — each piece carrying the spirit of its origin.
+            What started as a brokerage among colleagues in the gemstone trade grew into a trusted
+            network connecting miners, craftsmen, and global buyers.
           </motion.p>
+
+          <motion.blockquote
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-8 max-w-xl border-l-2 border-accent pl-5 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-primary md:text-3xl"
+          >
+            "Everyone in the business chain should eat — each person deserves the value of their work."
+            <footer className="mt-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-foreground/50">
+              Founder, Joram Meagie Lukumay (Balozi)
+            </footer>
+          </motion.blockquote>
 
           <motion.dl
             initial="hidden"
@@ -198,9 +204,9 @@ export function AboutSection() {
             className="mt-12 grid grid-cols-3 gap-6 border-y border-border/60 py-8"
           >
             {[
-              { key: "120+", value: "Artisan partners" },
-              { key: "14", value: "Countries served" },
-              { key: "100%", value: "Traceable origin" },
+              { key: "30+", value: "Years of trust" },
+              { key: "1993", value: "Mererani origin" },
+              { key: "Source", value: "To market" },
             ].map((stat) => (
               <motion.div
                 key={stat.value}
@@ -209,8 +215,8 @@ export function AboutSection() {
                   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                 }}
               >
-                <dt className="text-3xl font-semibold text-foreground md:text-4xl">{stat.key}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.16em] text-foreground/55">{stat.value}</dd>
+                <dt className="font-heading text-3xl font-semibold tracking-[-0.01em] text-foreground md:text-4xl">{stat.key}</dt>
+                <dd className="mt-1 font-body text-xs uppercase tracking-[0.2em] text-foreground/55">{stat.value}</dd>
               </motion.div>
             ))}
           </motion.dl>

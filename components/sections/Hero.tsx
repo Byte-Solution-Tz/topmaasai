@@ -5,18 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { trustSignals } from "@/lib/site-data";
 import { buttonClasses } from "@/lib/styles";
 
 type HeadlineWord = { label: string; accent?: boolean };
 
 const headlineWords: HeadlineWord[] = [
-  { label: "Tanzania's" },
-  { label: "Finest" },
-  { label: "Gemstones,", accent: true },
-  { label: "Sourced" },
-  { label: "with" },
-  { label: "Integrity." },
+  { label: "Authentic" },
+  { label: "Earth's" },
+  { label: "Rare" },
+  { label: "Minerals," },
+  { label: "From" },
+  { label: "Source" },
+  { label: "to" },
+  { label: "Market.", accent: true },
 ];
 
 export function Hero() {
@@ -170,15 +171,15 @@ export function Hero() {
 
         <div className="container-x relative z-10 py-20">
           <div className="max-w-3xl">
-            <p className="eyebrow mb-7" data-hero-eyebrow>
-              Arusha · Tanzania · Est. 1994
-            </p>
-            <h1
-              className="flex flex-wrap gap-x-[0.18em] gap-y-[0.08em] text-5xl leading-[1.02] sm:text-6xl lg:text-8xl"
-              aria-label="Tanzania's Finest Gemstones, Sourced with Integrity."
-              data-hero-headline
-              style={{ perspective: "600px" }}
-            >
+              <p className="eyebrow mb-7" data-hero-eyebrow>
+                From the Heart of Mererani to the World
+              </p>
+              <h1
+                className="flex flex-wrap gap-x-[0.18em] gap-y-[0.08em] font-heading text-5xl leading-[1.08] tracking-[-0.02em] sm:text-6xl lg:text-8xl"
+                aria-label="Authentic Earth's Rare Minerals, From Source to Market."
+                data-hero-headline
+                style={{ perspective: "600px" }}
+              >
               {headlineWords.map((word) => (
                 <span
                   key={word.label}
@@ -190,16 +191,16 @@ export function Hero() {
                 </span>
               ))}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/80 md:text-xl" data-hero-copy>
-              For over three decades, Top Maasai Mining Co. has supplied discerning buyers with rare
-              Tanzanian minerals, ethically mined from the foothills of Mererani.
+            <p className="mt-7 max-w-2xl font-body text-base leading-[1.7] text-primary-foreground/78 md:text-xl" data-hero-copy>
+              For over 30 years, Top Maasai Mining Co. has built its reputation on trust and respect
+              for the people behind every stone.
             </p>
             <div className="mt-10 flex flex-wrap gap-4" data-hero-actions>
               <Link href="/services" className={buttonClasses.gold}>
-                Discover Our Services <ArrowRight className="h-4 w-4" />
+                Our Services <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/contact" className={buttonClasses.outlineLight}>
-                Request a Quote
+                Contact Us
               </Link>
             </div>
           </div>
@@ -218,54 +219,7 @@ export function Hero() {
         </div>
       </section>
 
-      {/* ── Trust signals — editorial stat layout ─────────────────────── */}
-      <section ref={trustRef} className="border-b border-border bg-background">
-        <div className="container-x">
-          {/* Top rule with label */}
-          <div className="flex items-center gap-6 py-6 md:py-8">
-            <span className="h-px flex-1 bg-border" />
-            <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground/60">
-              Trusted Since 1994
-            </span>
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          {/* Stat grid */}
-          <div className="grid grid-cols-2 gap-0 pb-14 md:grid-cols-4 md:pb-16">
-            {trustSignals.map((signal, i) => (
-              <div
-                key={signal.label}
-                data-trust-card
-                className={`group relative flex flex-col gap-4 px-6 py-8 first:pl-0 last:pr-0
-                  ${i < trustSignals.length - 1 ? "border-r border-border" : ""}
-                  md:px-10`}
-              >
-                {/* Icon — small, quiet */}
-                <span className="text-accent/70">
-                  <signal.icon className="h-4 w-4" strokeWidth={1.5} />
-                </span>
-
-                {/* Number — the hero element */}
-                <div>
-                  <p
-                    className="text-4xl font-light leading-none tracking-tight text-primary md:text-5xl"
-                    data-trust-num
-                  >
-                    {signal.label}
-                  </p>
-                  {/* Accent underline — animated in */}
-                  <div className="mt-3 h-[2px] w-10 bg-accent" data-trust-line />
-                </div>
-
-                {/* Description */}
-                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
-                  {signal.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
