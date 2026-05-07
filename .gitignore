@@ -14,10 +14,13 @@ dist-ssr
 tsconfig.tsbuildinfo
 from-calude
 *.local
+.codex
+.codex/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+
 .idea
 .DS_Store
 *.suo
@@ -25,4 +28,3 @@ from-calude
 *.njsproj
 *.sln
 *.sw?
-
