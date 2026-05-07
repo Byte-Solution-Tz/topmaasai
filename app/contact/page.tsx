@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { ContactForm } from "@/src/components/forms/ContactForm";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { contactDetails } from "@/lib/site-data";
-import { buttonClasses, fieldClasses } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -64,71 +64,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form
-            action={`mailto:${contactDetails.email}`}
-            method="post"
-            encType="text/plain"
-            className="space-y-6 rounded-md border bg-card p-8 shadow-card md:p-12"
-          >
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-foreground">
-                  Full name
-                </label>
-                <input id="name" name="name" required placeholder="Jane Doe" className={fieldClasses.input} />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-foreground">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="jane@company.com"
-                  className={fieldClasses.input}
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="inquiry" className="text-sm font-medium text-foreground">
-                Inquiry type
-              </label>
-              <select id="inquiry" name="inquiry" defaultValue="Gemstone Sourcing" className={fieldClasses.select}>
-                <option>Gemstone Sourcing</option>
-                <option>Rare Earth Minerals</option>
-                <option>Lapidary Services</option>
-                <option>Jewelry Production</option>
-                <option>Mining Investment</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-foreground">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={6}
-                placeholder="Tell us about your project, volume requirements, or questions."
-                className={fieldClasses.textarea}
-              />
-            </div>
-
-            <button type="submit" className={buttonClasses.navy}>
-              Send Inquiry <Send className="h-4 w-4" />
-            </button>
-
-            <p className="text-xs text-muted-foreground">
-              Submitting this form opens your email client with the details prefilled. For direct outreach,
-              email {contactDetails.email}.
-            </p>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </>

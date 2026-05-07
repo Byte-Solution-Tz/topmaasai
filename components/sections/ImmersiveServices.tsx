@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import { serviceDetails } from "@/lib/site-data";
 import { buttonClasses } from "@/lib/styles";
@@ -129,10 +129,6 @@ export function ImmersiveServices() {
             <div className="absolute inset-0 flex items-end" data-panel-text>
               <div className="container-x w-full pb-16 md:pb-24 lg:pb-28">
                 <div className="max-w-2xl">
-                  <p className="eyebrow mb-5 text-accent" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}>
-                    Service {service.number}
-                  </p>
-
                   <h2
                     className="text-4xl font-semibold leading-[1.04] text-primary-foreground md:text-5xl lg:text-6xl"
                     style={{ textShadow: "0 10px 28px rgba(0,0,0,0.35)" }}
@@ -208,38 +204,38 @@ function ScrollHint({ wrapRef }: { wrapRef: React.RefObject<HTMLDivElement> }) {
       return;
     }
 
-    const tween = gsap.to(element, {
-      opacity: 0,
-      y: 12,
-      duration: 0.5,
-      ease: "power2.in",
-      paused: true,
-    });
-
     const onScroll = () => {
-      if (window.scrollY > 10) {
-        tween.play();
-      }
+      const sectionProgress = window.scrollY - wrap.offsetTop;
+      const maxProgress = (serviceDetails.length - 1) * window.innerHeight;
+      const isWithinServices = sectionProgress >= -window.innerHeight * 0.25 && sectionProgress < maxProgress - 80;
+
+      gsap.to(element, {
+        opacity: isWithinServices ? 1 : 0,
+        y: isWithinServices ? 0 : 12,
+        duration: 0.3,
+        ease: "power2.out",
+        overwrite: true,
+      });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      tween.kill();
     };
   }, [wrapRef]);
 
   return (
     <div
       ref={ref}
-      className="pointer-events-none absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2"
+      className="pointer-events-none absolute bottom-5 left-1/2 z-20 flex w-[min(88vw,22rem)] -translate-x-1/2 flex-col items-center gap-2 rounded-md border border-primary-foreground/15 bg-primary/70 px-4 py-3 text-center opacity-0 shadow-elevated backdrop-blur-md md:hidden"
       aria-hidden="true"
     >
-      <span className="text-[9px] uppercase tracking-[0.32em] text-primary-foreground/35">Scroll</span>
-      <div className="relative flex h-8 w-5 items-start justify-center overflow-hidden rounded-full border border-primary-foreground/20 pt-1.5">
-        <span className="h-1.5 w-px animate-bounce rounded-full bg-accent/60" />
-      </div>
+      <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/80">
+        Keep scrolling for more services
+      </span>
+      <ChevronDown className="h-5 w-5 animate-bounce text-accent" strokeWidth={2.2} />
     </div>
   );
 }

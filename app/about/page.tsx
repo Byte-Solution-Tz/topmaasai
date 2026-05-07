@@ -316,27 +316,6 @@ function PillarsSection() {
           </p>
         </div>
 
-        <div className="mx-auto mb-16 max-w-[34rem]" data-pillar-reveal>
-          <div className="relative aspect-square">
-            <div className="absolute inset-16 rounded-full border border-accent/25 md:inset-20" />
-            <div className="absolute inset-24 rounded-full border border-primary-foreground/10 md:inset-28" />
-            <div className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-accent/50 bg-primary/75 text-center shadow-elevated backdrop-blur-sm md:h-40 md:w-40">
-              <span className="font-heading text-3xl tracking-[-0.02em] text-accent md:text-4xl">Values</span>
-            </div>
-
-            {values.map((value, index) => (
-              <div
-                key={value}
-                className={`absolute ${valuePositions[index]} grid h-24 w-24 place-items-center rounded-full border border-accent/60 bg-primary/80 p-3 text-center shadow-card backdrop-blur-sm md:h-28 md:w-28`}
-              >
-                <span className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground/82 md:text-sm">
-                  {value}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
           {featuredPillars.map((pillar, index) => {
             const Icon = pillar.icon;
@@ -367,6 +346,27 @@ function PillarsSection() {
               </article>
             );
           })}
+        </div>
+
+        <div className="mx-auto mt-16 max-w-[34rem]" data-pillar-reveal>
+          <div className="relative aspect-square">
+            <div className="absolute inset-16 rounded-full border border-accent/25 md:inset-20" />
+            <div className="absolute inset-24 rounded-full border border-primary-foreground/10 md:inset-28" />
+            <div className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-accent/50 bg-primary/75 text-center shadow-elevated backdrop-blur-sm md:h-40 md:w-40">
+              <span className="font-heading text-3xl tracking-[-0.02em] text-accent md:text-4xl">Values</span>
+            </div>
+
+            {values.map((value, index) => (
+              <div
+                key={value}
+                className={`absolute ${valuePositions[index]} grid h-24 w-24 place-items-center rounded-full border border-accent/60 bg-primary/80 p-3 text-center shadow-card backdrop-blur-sm md:h-28 md:w-28`}
+              >
+                <span className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground/82 md:text-sm">
+                  {value}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

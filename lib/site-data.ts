@@ -183,7 +183,7 @@ export const serviceDetails: ServiceDetail[] = [
   {
     number: "03",
     title: "Lapidary",
-    image: "/images/service-lapidary.jpg",
+    image: "/images/service-lapidary.png",
     description:
       "Our in-house lapidary team ensures each gemstone reaches its highest potential through custom gemstone cuts, precision polishing, and quality finishing.",
     bullets: ["In-house gem cutting", "Custom gemstone cuts", "Precision polishing", "Quality finishing"],
