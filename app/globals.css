@@ -102,4 +102,63 @@
     background-size: 180px 180px, 220px 220px, 200px 200px;
     background-position: 0 0, 40px 60px, 100px 120px;
   }
+
+  .tm-fade-up {
+    animation: tm-fade-up 900ms ease-out both;
+  }
+
+  .tm-rotate-slow {
+    animation: tm-rotate 18s linear infinite;
+  }
+
+  .tm-rotate-rev {
+    animation: tm-rotate 24s linear infinite reverse;
+  }
+
+  .tm-pulse-ring {
+    animation: tm-pulse-ring 2.4s ease-out infinite;
+  }
+
+  .tm-gem-float {
+    animation: tm-gem-float 3.6s ease-in-out infinite;
+  }
+}
+
+@keyframes tm-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tm-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tm-pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.78);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes tm-gem-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
