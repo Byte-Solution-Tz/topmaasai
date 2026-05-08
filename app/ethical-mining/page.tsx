@@ -91,7 +91,7 @@ export default function EthicalMiningPage() {
             </h2>
           </div>
 
-          <div className="relative mx-auto grid max-w-5xl gap-16 sm:grid-cols-2" data-ethical-pillar-grid>
+          <div className="relative mx-auto grid max-w-5xl gap-4 sm:grid-cols-2" data-ethical-pillar-grid>
             {ethicalPillars.map((pillar, index) => (
               <article
                 key={pillar.title}
@@ -132,11 +132,11 @@ export default function EthicalMiningPage() {
                   </div>
 
                   <div style={{ textShadow: "0 2px 14px rgb(0 0 0 / 0.85)" }}>
-                    <div className="mb-4 h-px w-full bg-primary-foreground/35" />
+                    {/* <div className="mb-4 h-px w-full bg-primary-foreground/35" /> */}
                     <h3 className="font-heading text-2xl font-medium leading-[1.12] tracking-[-0.01em] text-primary-foreground md:text-3xl">
                       {pillar.title}
                     </h3>
-                    <p className="mt-3 font-body text-sm font-medium  leading-[1.7] text-primary-foreground/78">
+                    <p className="mt-3 mb-8 pb-5 font-body text-sm font-medium  leading-[1.7] text-primary-foreground/78">
                       {pillar.description}
                     </p>
                   </div>
