@@ -126,8 +126,8 @@ export function ImmersiveServices() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/78 via-primary/34 to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,hsl(var(--accent)/0.12),transparent_24%)]" />
 
-            <div className="absolute inset-0 flex items-end" data-panel-text>
-              <div className="container-x w-full pb-16 md:pb-24 lg:pb-28">
+            <div className="absolute inset-0 flex items-center md:items-end" data-panel-text>
+              <div className="container-x w-full py-24 md:pb-24 md:pt-0 lg:pb-28">
                 <div className="max-w-2xl">
                   <h2
                     className="text-4xl font-semibold leading-[1.04] text-primary-foreground md:text-5xl lg:text-6xl"
@@ -229,13 +229,10 @@ function ScrollHint({ wrapRef }: { wrapRef: React.RefObject<HTMLDivElement> }) {
   return (
     <div
       ref={ref}
-      className="pointer-events-none absolute bottom-5 left-1/2 z-20 flex w-[min(88vw,22rem)] -translate-x-1/2 flex-col items-center gap-2 rounded-md border border-primary-foreground/15 bg-primary/70 px-4 py-3 text-center opacity-0 shadow-elevated backdrop-blur-md md:hidden"
+      className="pointer-events-none absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center opacity-0 md:hidden"
       aria-hidden="true"
     >
-      <span className="text-[10px] uppercase tracking-[0.22em] text-primary-foreground/80">
-        Keep scrolling for more services
-      </span>
-      <ChevronDown className="h-5 w-5 animate-bounce text-accent" strokeWidth={2.2} />
+      <ChevronDown className="h-6 w-6 animate-bounce text-accent drop-shadow" strokeWidth={2.4} />
     </div>
   );
 }
