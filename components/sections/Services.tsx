@@ -311,7 +311,7 @@ function DifferentiatorsSection() {
           </p>
         </div>
 
-        <div data-diff-grid className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div data-diff-grid className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {homeDifferentiators.map((item, index) => (
             <article
               key={item.title}
