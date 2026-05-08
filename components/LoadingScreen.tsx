@@ -139,9 +139,7 @@ export function LoadingScreen() {
         </div>
       </div>
 
-      <div className="tm-fade-up absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-[0.45em] text-primary-foreground/40 [animation-delay:1s]">
-        Gold · Tanzanite · Heritage
-      </div>
+      
     </div>
   );
 }
