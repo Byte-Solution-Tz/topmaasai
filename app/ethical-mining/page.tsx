@@ -3,34 +3,19 @@ import Image from "next/image";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ethicalPillars } from "@/lib/site-data";
 
-const pillarStyles = [
-  {
-    badge: "left-4 top-4 border-accent bg-accent/10",
-    icon: "bg-accent text-accent-foreground",
-    drop: "rounded-br-none",
-    card: "md:rounded-br-none",
-  },
-  {
-    badge: "right-4 top-4 border-accent bg-maasai-earth/10",
-    icon: "bg-maasai-earth text-primary-foreground",
-    drop: "rounded-bl-none",
-    card: "md:rounded-bl-none",
-  },
-  {
-    badge: "left-4 bottom-4 border-accent bg-maasai-red/10",
-    icon: "bg-maasai-red text-primary-foreground",
-    drop: "rounded-tr-none",
-    card: "md:rounded-tr-none",
-  },
-  {
-    badge: "right-4 bottom-4 border-accent bg-primary/10",
-    icon: "bg-primary text-primary-foreground",
-    drop: "rounded-tl-none",
-    card: "md:rounded-tl-none",
-  },
+const toRoman = (n: number) =>
+  ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][n - 1] ?? String(n);
+
+const pillarIconStyles = [
+  "bg-primary text-primary-foreground rounded-br-none",
+  "bg-primary text-primary-foreground rounded-bl-none",
+  "bg-primary text-primary-foreground rounded-tr-none",
+  "bg-primary text-primary-foreground rounded-tl-none",
 ];
 
 const centerIconPositions = ["-translate-x-full -translate-y-full", "-translate-y-full", "-translate-x-full", ""];
+
+const pillarContentSpacing = ["sm:pr-16", "sm:pl-16", "sm:pr-16", "sm:pl-16"];
 
 export const metadata: Metadata = {
   title: "Ethical Mining",
@@ -106,41 +91,67 @@ export default function EthicalMiningPage() {
             </h2>
           </div>
 
-          <div className="relative mx-auto grid max-w-5xl gap-5 md:grid-cols-2 md:gap-4">
+          <div className="relative mx-auto grid max-w-5xl gap-16 sm:grid-cols-2" data-ethical-pillar-grid>
             {ethicalPillars.map((pillar, index) => (
               <article
                 key={pillar.title}
-                className={`relative min-h-[18rem] overflow-hidden rounded-[2rem] border-2 border-accent bg-white px-8 py-12 text-center shadow-card md:min-h-[19rem] md:px-12 md:py-16 ${pillarStyles[index].card}`}
+                className="group relative min-h-[320px] overflow-hidden rounded-[2px] bg-primary/78"
               >
                 <div
-                  className={`absolute grid h-16 w-16 place-items-center rounded-full border-[7px] text-2xl text-primary shadow-sm md:h-20 md:w-20 md:text-3xl ${pillarStyles[index].badge}`}
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-cover bg-bottom bg-no-repeat opacity-[0.14] mix-blend-luminosity transition duration-500 group-hover:opacity-[0.2]"
+                  style={{ backgroundImage: "url('/images/top-maasai-service-section-bg.png')" }}
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-primary via-primary/78 to-primary/24"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-primary/15 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+
+                <div className="absolute inset-0 rounded-[2px] border border-accent/25 transition-colors duration-500 group-hover:border-accent/55" />
+
+                <div className="absolute left-5 top-5 z-10" aria-hidden="true">
+                  <div className="absolute left-0 top-0 h-4 w-px bg-accent/60" />
+                  <div className="absolute left-0 top-0 h-px w-4 bg-accent/60" />
+                </div>
+
+                <div
+                  className={`absolute inset-0 z-10 flex flex-col justify-between p-6 md:p-7 ${pillarContentSpacing[index]}`}
                 >
-                  0{index + 1}
-                </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-body text-[10px] font-light tracking-[0.45em] text-accent/70">
+                      {toRoman(index + 1)}
+                    </span>
+                  </div>
 
-                <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full md:hidden">
-                  <span
-                    className={`grid h-16 w-16 place-items-center rounded-full border-2 border-primary-foreground ${pillarStyles[index].icon}`}
-                  >
-                    <pillar.icon className="h-7 w-7" strokeWidth={1.6} />
-                  </span>
+                  <div style={{ textShadow: "0 2px 14px rgb(0 0 0 / 0.85)" }}>
+                    <div className="mb-4 h-px w-full bg-primary-foreground/35" />
+                    <h3 className="font-heading text-2xl font-medium leading-[1.12] tracking-[-0.01em] text-primary-foreground md:text-3xl">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-3 font-body text-sm font-medium  leading-[1.7] text-primary-foreground/78">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="mx-auto max-w-xs text-3xl leading-tight text-primary md:text-4xl">{pillar.title}</h3>
-                <p className="mx-auto mt-8 max-w-sm text-base leading-relaxed text-muted-foreground md:text-lg">
-                  {pillar.description}
-                </p>
               </article>
             ))}
 
             <div
-              className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-36 w-36 -translate-x-1/2 -translate-y-1/2 md:block"
+              className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden h-36 w-36 -translate-x-1/2 -translate-y-1/2 sm:block"
               aria-hidden="true"
             >
               {ethicalPillars.map((pillar, index) => (
                 <span
                   key={pillar.title}
-                  className={`absolute left-1/2 top-1/2 grid h-[4.5rem] w-[4.5rem] place-items-center rounded-full border-2 border-primary-foreground ${pillarStyles[index].drop} ${centerIconPositions[index]} ${pillarStyles[index].icon}`}
+                  className={`absolute left-1/2 top-1/2 grid h-[4.5rem] w-[4.5rem] place-items-center rounded-full border-2 border-accent ${centerIconPositions[index]} ${pillarIconStyles[index]}`}
                 >
                   <pillar.icon className="h-8 w-8" strokeWidth={1.5} />
                 </span>

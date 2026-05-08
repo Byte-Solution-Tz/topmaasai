@@ -59,7 +59,7 @@ export function Footer() {
                 alt="Top Maasai"
                 width={150}
                 height={150}
-                className="h-22 w-auto"
+                className="h-28 w-auto md:h-32 lg:h-40"
               />
             </Link>
             
