@@ -191,7 +191,7 @@ export const serviceDetails: ServiceDetail[] = [
   {
     number: "04",
     title: "Jewelry Production",
-    image: "/images/service-jewelry.jpg",
+    image: "/images/service-jewelry.png",
     description:
       "We design and produce fine gemstone jewelry, including custom gemstone settings, bespoke jewelry pieces, and finished gemstone jewelry collections.",
     bullets: ["Custom gemstone settings", "Bespoke jewelry pieces", "Finished collections", "Maasai women artisans"],
